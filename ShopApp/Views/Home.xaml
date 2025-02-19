@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ShopApp.Views.Home"
+             Shell.NavBarIsVisible="False"
+             BackgroundColor="#F4CCE9"
+             Padding="20">
+
+    <ScrollView>
+        <!-- Wrapping everything in a VerticalStackLayout -->
+        <VerticalStackLayout>
+
+            <!-- StackLayout for Heading with Image on the Top Left and another Image Centered with the Label -->
+            <StackLayout Orientation="Horizontal" Spacing="10" Padding="10">
+
+                <!-- Top Left Image and Label -->
+                <Image Source="books.png" WidthRequest="80" HeightRequest="80" VerticalOptions="Center"/>
+                <Label Text="BookTok"
+                       FontSize="30"
+                       FontAttributes="Bold"
+                       HorizontalOptions="Start"
+                       TextColor="DarkSlateGray" 
+                       VerticalOptions="Center"/>
+            </StackLayout>
+
+            <!-- CollectionView displaying products in a 2x2 layout -->
+            <CollectionView ItemsSource="{Binding Products}" 
+                             VerticalOptions="FillAndExpand"
+                             HorizontalOptions="FillAndExpand">
+                <CollectionView.ItemsLayout>
+                    <GridItemsLayout Orientation="Vertical" Span="2"/>
+                </CollectionView.ItemsLayout>
+
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame BorderColor="#56021F" Padding="10" Margin="10" CornerRadius="10" BackgroundColor="#FFDFEF">
+                            <StackLayout>
+
+                                <!-- Heart Icon at the Top Right -->
+                                <Frame Padding="0" HorizontalOptions="EndAndExpand" VerticalOptions="Start" BackgroundColor="Transparent" BorderColor="Transparent">
+                                    <Image Source="heart.png"
+                                           WidthRequest="40"
+                                          HeightRequest="40"
+                                          HorizontalOptions="EndAndExpand"
+                                        VerticalOptions="Start" />
+                                </Frame>
+
+                                <!-- Product Image -->
+                                <Image Source="{Binding ImagePath}" 
+                                       Aspect="AspectFill" 
+                                       HeightRequest="250" 
+                                       WidthRequest="150" 
+                                       HorizontalOptions="Center" />
+
+                                <!-- Product Name -->
+                                <Label Text="{Binding ItemName}" 
+                                       FontSize="Medium"
+                                       TextColor="#56021F"
+                                       HorizontalOptions="Center"/>
+
+                                <!-- Product Description -->
+                                <Label Text="{Binding Description,  StringFormat='By {0:F2}'}" 
+                                       FontSize="Small" 
+                                       Margin="150,0,0,0"
+                                       HorizontalOptions="Center" 
+                                       TextColor="#56021F"
+                                       LineBreakMode="TailTruncation"/>
+
+                                <!-- Product Price -->
+                                <Label Text="{Binding Price, StringFormat='R{0:F2}'}" 
+                                       FontSize="Medium" 
+                                       TextColor="#56021F"
+                                       HorizontalOptions="Center"/>
+
+                                <Button Text="Add to Cart" Command="{Binding AddToCartCommand}" CommandParameter="{Binding ItemId}" />
+
+
+                            </StackLayout>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+            <!-- Bottom Image placed after the ScrollView -->
+            <Image Source="open.png"
+                   WidthRequest="100"
+                   HeightRequest="100"
+                   HorizontalOptions="Center"
+                   VerticalOptions="EndAndExpand"/>
+
+            <!-- Label with "From Page-Turners" -->
+            <Label Text="From Page-Turners to Classics, We've Got It All!"
+                   TextColor="#AA60C8" 
+                   FontSize="20" 
+                   FontAttributes="Bold" 
+                   HorizontalOptions="Center" 
+                   Margin="0,20,0,0"/>
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>

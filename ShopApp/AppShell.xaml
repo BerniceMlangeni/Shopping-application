@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="ShopApp.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:ShopApp"
+    Shell.FlyoutBehavior="Disabled"
+    xmlns:views="clr-namespace:ShopApp.Views"
+    Shell.TabBarBackgroundColor="#D17D98"
+    Shell.TabBarForegroundColor="#F4CCE9"
+    Title="ShopApp">
+
+    <TabBar>
+        <Tab  Icon="home.png">
+            <ShellContent Route="Home"
+                        ContentTemplate="{DataTemplate views:Home}" />
+        </Tab>
+
+        <Tab Icon="cart.png">
+            <ShellContent Route="Cart"
+                        ContentTemplate="{DataTemplate views:Cart}" />
+        </Tab>
+
+        <Tab  Icon="user.png">
+            <ShellContent Route="profilePage"
+                        ContentTemplate="{DataTemplate  views:ProfilePage}" />
+        </Tab>
+    </TabBar>
+
+</Shell>
