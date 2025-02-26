@@ -14,8 +14,8 @@ namespace ShopApp.Model
         public int CartId { get; set; }
 
         // Foreign Keys
-        public Guid ProfileId { get; set; } // Links to Profile (Guid)
-        public int ItemId { get; set; }      // Links to ShoppingItem (int)
+        public int ProfileId { get; set; }
+        public int ItemId { get; set; }  
         public int Quantity { get; set; }
         public double Price { get; set; }
     }

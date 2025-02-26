@@ -36,7 +36,7 @@ public partial class ProfilePage : ContentPage
     {
         var profile = new Profile
         {
-            Id = 1, // Always use the same ID so there's only one profile stored
+            Id = 1, 
             Name = NameEntry.Text,
             Surname = SurnameEntry.Text,
             Email = EmailEntry.Text,

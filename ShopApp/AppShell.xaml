@@ -13,7 +13,7 @@
     <TabBar>
         <Tab  Icon="home.png">
             <ShellContent Route="Home"
-                        ContentTemplate="{DataTemplate views:Home}" />
+                        ContentTemplate="{DataTemplate views:Home}"/>
         </Tab>
 
         <Tab Icon="cart.png">
